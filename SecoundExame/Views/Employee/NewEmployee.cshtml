@@ -1,0 +1,75 @@
+﻿@model VMEmployee
+@{
+    ViewData["Title"] = "NewEmployee";
+}
+@section Body{
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+        <div class="row space">
+            <div class="col-md-2"> 
+            <label  class="control-label" asp-for="employee.Name"></label></div>
+            <div class="col-md-4">
+                <input class="form-control" asp-for="employee.Name" />
+            <span asp-validation-for="employee.Name"></span>
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-2">
+            <label class="control-label" asp-for="employee.Phone"></label></div>
+            <div class="col-md-4">
+                <input class="form-control" asp-for="employee.Phone" />
+                <span asp-validation-for="employee.Phone"></span>
+
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-2"> 
+            <label class="control-label" asp-for="employee.Email"></label></div>
+            <div class="col-md-4">
+                <input class="form-control" asp-for="employee.Email" />
+                <span asp-validation-for="employee.Phone"></span>
+
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-2">
+            <label class="control-label" asp-for="employee.Country_Id"></label></div>
+            <div class="col-md-4">
+                <select class="form-control" asp-items='new SelectList(Model.countries,"Id","Name")' asp-for="employee.Country_Id"></select>
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-2"> 
+            <label class="control-label" asp-for="employee.Birthdate">ddd</label></div>
+            <div class="col-md-4">
+                <input class="form-control" asp-for="employee.Birthdate" />
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-2">  <label class="control-label" asp-for="employee.Department_Id"></label></div>
+            <div class="col-md-4">
+                <select class="form-control" asp-items='new SelectList(Model.departments,"Id","Name")' asp-for="employee.Department_Id"></select>
+            </div>
+
+        </div>
+        <div class="row space">
+            <div class="col-md-4">
+                <input type="file" style="display:none" id="Img" asp-for="FilePath" />
+                <label for="Img" class="btn btn-primary" >Upload Image</label>
+            </div>
+
+        </div>
+
+        <div class="row ">
+                <input type="submit" value="Save" asp-action="Save" />
+
+        </div>
+            </form>
+    </div>
+}
+
